@@ -1,0 +1,63 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: pathrika
+      POSTGRES_USER: pathrika
+      POSTGRES_PASSWORD: pathrika_dev
+    ports:
+      - '5436:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U pathrika']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6383:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - '3100:3100'
+    environment:
+      DATABASE_URL: postgres://pathrika:pathrika_dev@postgres:5432/pathrika
+      REDIS_URL: redis://redis:6379
+      PORT: 3100
+      NODE_ENV: development
+      FETCH_INTERVAL_MS: 600000
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./api/src:/app/src
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - '3101:3000'
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3100
+      API_INTERNAL_URL: http://api:3100
+    depends_on:
+      - api
+
+volumes:
+  pgdata:

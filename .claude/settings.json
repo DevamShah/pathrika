@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "if": "Bash(git commit:*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/devam/Documents/archeon/forgeon/pathrika/qa/pre-commit-check.sh",
+            "timeout": 120,
+            "statusMessage": "Running Pathrika pre-commit QA checks..."
+          }
+        ]
+      }
+    ]
+  }
+}

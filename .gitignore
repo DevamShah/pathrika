@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+.pnp.*
+.yarn/
+
+# Build
+dist/
+.next/
+out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+qa/screenshots/*.png
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Docker
+pgdata/
