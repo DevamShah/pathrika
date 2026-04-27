@@ -1,3 +1,11 @@
+---
+tags:
+  - archeon
+  - forgeon
+  - product
+  - product-pathrika
+---
+
 # Pathrika — RSS Intelligence Aggregator
 
 ## Enforcement Rules (Non-Negotiable)

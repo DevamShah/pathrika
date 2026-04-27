@@ -1,3 +1,11 @@
+---
+tags:
+  - archeon
+  - forgeon
+  - product
+  - product-pathrika
+---
+
 # Contributing to Pathrika
 
 Thank you for your interest in contributing to Pathrika.

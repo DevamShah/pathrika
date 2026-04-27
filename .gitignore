@@ -37,3 +37,7 @@ next-env.d.ts
 
 # Docker
 pgdata/
+
+# Next.js build artifacts
+next-env.d.ts
+*.tsbuildinfo

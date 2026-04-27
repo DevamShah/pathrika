@@ -1,3 +1,11 @@
+---
+tags:
+  - archeon
+  - forgeon
+  - product
+  - product-pathrika
+---
+
 # Security Policy
 
 ## Supported Versions

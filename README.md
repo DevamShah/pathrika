@@ -1,3 +1,11 @@
+---
+tags:
+  - archeon
+  - forgeon
+  - product
+  - product-pathrika
+---
+
 # Pathrika
 
 **Personal RSS intelligence aggregator** — 25 curated feeds across 5 domains, with multi-source routing, circuit breaker resilience, three-tier caching, and a premium dark UI.
